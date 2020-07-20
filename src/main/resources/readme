@@ -1,0 +1,55 @@
+install rabbit m2
+
+rabbit mq link 
+http://localhost:15672/#/
+
+add  to application.properties
+default guest/guest
+
+vi application.properties to edit
+
+:g! discard and exit
+:w save 
+
+esc x delete
+esc a  insert
+
+
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=guest
+spring.rabbitmq.password=guest
+
+
+to refresh  sprig cloud bus to push 
+localhost:8012/actuator/bus-refresh
+
+
+ASSYMETRIC ENCRYPTION
+
+algorithm = AES RSA   
+
+alias = encyptAPIKey
+CN = common name
+OU (Oraganizational Unit)
+O= Organization name or domain
+L=(Location)
+S=(State)
+C=(Country)
+keypass= password  make complicated
+keystore can be any name make sure .jks is there  , basically this is the name of file that contain public (Encryption) and private key (Decryption)
+storepass= protect integrity of keystore file , both password should be at least 6 character long
+
+for simplicity use both password same
+
+keytool -genkeypair -alias encyptAPIKey3 -keyalg RSA -dname "CN=Uttam Giri,OU=Personal API Development Department,O=koklmani.com,L=Jacksonville,S=Florida,C=USA" -keypass 1werhdsr -keystore encyptAPIKey3.jks -storepass 1werhdsr
+
+
+
+now post call
+
+http://localhost:8012/encrypt  eg -  giri  
+
+http://localhost:8012/decrypt  generate value
+
+inorder to use in project you have to use {cipher} generatedvalue
