@@ -9,7 +9,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 public class PersonalAppApiConfigServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PersonalAppApiConfigServerApplication.class, args);
+		SpringApplication.run(PersonalAppApiConfigServerApplication.class, args) ;
 	}
 
 }
